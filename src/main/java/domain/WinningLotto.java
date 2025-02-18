@@ -4,7 +4,7 @@ import static exception.ErrorMessage.LOTTO_NUMBER_DUPLICATED_ERROR;
 import static exception.ErrorMessage.LOTTO_RANGE_ERROR;
 
 import constant.WinningCount;
-import exception.LottoException;
+import exception.UserInputException;
 import java.util.List;
 
 public class WinningLotto {
@@ -24,13 +24,13 @@ public class WinningLotto {
 
     private void validateBonusNumberRange(Integer bonusNumber) {
         if (bonusNumber < 1 || bonusNumber > 45) {
-            throw LottoException.from(LOTTO_RANGE_ERROR);
+            throw UserInputException.from(LOTTO_RANGE_ERROR);
         }
     }
 
     private void validateDuplicate(Integer bonusNumber) {
         if (this.lotto.contains(bonusNumber)) {
-            throw LottoException.from(LOTTO_NUMBER_DUPLICATED_ERROR);
+            throw UserInputException.from(LOTTO_NUMBER_DUPLICATED_ERROR);
         }
     }
 
